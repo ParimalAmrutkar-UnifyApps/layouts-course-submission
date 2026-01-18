@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-column Feed</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 250px;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .sidebar-item {
+            height: 40px;
+            background-color: #e8e8e8;
+            border-radius: 4px;
+        }
+
+        .sidebar-button {
+            height: 45px;
+            background-color: #1a1a1a;
+            border-radius: 6px;
+            margin-top: auto;
+        }
+
+        .main-content {
+            flex: 1;
+            padding-inline: 20px;
+        }
+
+        .content-box {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .content-box.small {
+            height: 140px;
+            background-color: rgb(240, 240, 240);
+        }
+
+        .content-box.large {
+            height: 200px;
+            background-color: rgb(240, 240, 240);
+        }
+
+        .right-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 280px;
+            padding: 20px 15px;
+            row-gap: 20px;
+        }
+
+        .right-search {
+            height: 40px;
+            background-color: #e8e8e8;
+            border-radius: 20px;
+        }
+
+        .right-box.small {
+            height: 200px;
+            background-color: #e8e8e8;
+            border-radius: 6px;
+        }
+
+        .right-box.large {
+            height: 240px;
+            background-color: #e8e8e8;
+            border-radius: 6px;
+        }
+
+        .vertical-divider {
+            border-left: 2px solid rgb(240, 240, 240);
+            height: 1 vh;
+        }
+
+        .horizontal-divider {
+            border-bottom: 2px solid rgb(240, 240, 240);
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div style="background-color: #c5c5c5;" class="sidebar-item"></div>
+            <div class="sidebar-item"></div>
+            <div class="sidebar-item"></div>
+            <div class="sidebar-item"></div>
+            <div class="sidebar-item"></div>
+            <div class="sidebar-button"></div>
+        </div>
+
+        <div class="vertical-divider"></div>
+
+        <div style="flex: 1;">
+            <div style="margin-top: 60px;" class="horizontal-divider"></div>
+            <div style="margin-top: 20px;" class="main-content">
+                <div class="content-box small"></div>
+                <div class="content-box large"></div>
+                <div class="content-box small"></div>
+            </div>
+        </div>
+
+        <div class="vertical-divider"></div>
+
+        <div class="right-sidebar">
+            <div class="right-search"></div>
+            <div class="right-box small"></div>
+            <div class="right-box large"></div>
+        </div>
+    </div>
+</body>
+
+</html>
