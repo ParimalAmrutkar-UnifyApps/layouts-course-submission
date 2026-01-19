@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spreadsheet Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #2a2a2a;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 90px;
+            height: 24px;
+            background-color: #4a4a4a;
+            border-radius: 4px;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .header-button {
+            width: 60px;
+            height: 28px;
+            background-color: #3a3a3a;
+            border-radius: 4px;
+        }
+
+        .header-icon {
+            width: 32px;
+            height: 32px;
+            background-color: #4a4a4a;
+            border-radius: 4px;
+            margin-left: auto;
+        }
+
+        .toolbar {
+            background-color: #3a3a3a;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+            justify-content: space-between;
+        }
+
+        .toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .toolbar-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #4a4a4a;
+            border-radius: 6px;
+        }
+
+        .toolbar-input {
+            width: 160px;
+            height: 32px;
+            background-color: #4a4a4a;
+            border-radius: 4px;
+        }
+
+        .toolbar-center {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .toolbar-record {
+            width: 90px;
+            height: 36px;
+            background-color: #8b4f4f;
+            border-radius: 6px;
+        }
+
+        .toolbar-right {
+            display: flex;
+            gap: 16px;
+        }
+
+        .toolbar-input-right {
+            width: 120px;
+            height: 32px;
+            background-color: #4a4a4a;
+            border-radius: 4px;
+        }
+
+        .toolbar-icon-small {
+            width: 50px;
+            height: 50px;
+            background-color: #4a4a4a;
+            border-radius: 6px;
+        }
+
+        .search-bar {
+            height: 44px;
+            background-color: #3a3a3a;
+            display: flex;
+            align-items: center;
+            padding: 0 24px;
+        }
+
+        .search-input {
+            width: 300px;
+            height: 32px;
+            background-color: #4a4a4a;
+            border-radius: 4px;
+        }
+
+        .tabs {
+            background-color: #fff;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 8px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .tab {
+            height: 32px;
+            background-color: #e8e8e8;
+            border-radius: 6px;
+        }
+
+        .tab:first-child {
+            width: 90px;
+            background-color: #000;
+        }
+
+        .tab:nth-child(2) {
+            width: 90px;
+        }
+
+        .tab:nth-child(3) {
+            width: 90px;
+        }
+
+        .tab:nth-child(4) {
+            width: 90px;
+        }
+
+        .main-container {
+            display: flex;
+            height: calc(100vh - 222px);
+        }
+
+        .spreadsheet {
+            flex: 1;
+            background-color: #fff;
+            padding: 24px;
+            overflow: auto;
+        }
+
+        .spreadsheet-content {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .spreadsheet-header {
+            height: 48px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            justify-content: space-between;
+        }
+
+        .header-left {
+            height: 20px;
+            width: 180px;
+            background-color: #d0d0d0;
+            border-radius: 4px;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 8px;
+        }
+
+        .header-pill {
+            width: 60px;
+            height: 24px;
+            background-color: #d0d0d0;
+            border-radius: 12px;
+        }
+
+        .spreadsheet-row {
+            height: 40px;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            justify-content: space-between;
+        }
+
+        .row-left {
+            height: 16px;
+            width: 180px;
+            background-color: #d0d0d0;
+            border-radius: 4px;
+        }
+
+        .row-right {
+            height: 16px;
+            width: 180px;
+            background-color: #e8e8e8;
+            border-radius: 4px;
+        }
+
+        .sidebar {
+            width: 320px;
+            background-color: #fff;
+            border-left: 1px solid #e0e0e0;
+            padding: 24px;
+            overflow-y: auto;
+        }
+
+        .sidebar-card {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .sidebar-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #d0d0d0;
+            border-radius: 6px;
+        }
+
+        .sidebar-icon-small {
+            width: 16px;
+            height: 16px;
+            background-color: #d0d0d0;
+            border-radius: 50%;
+        }
+
+        .sidebar-title {
+            height: 16px;
+            flex: 1;
+            background-color: #d0d0d0;
+            border-radius: 4px;
+        }
+
+        .sidebar-content {
+            height: 40px;
+            width: 100%;
+            background-color: #e8e8e8;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo"></div>
+        <div class="header-buttons">
+            <div class="header-button"></div>
+            <div class="header-button"></div>
+            <div class="header-button"></div>
+            <div class="header-button"></div>
+            <div class="header-button"></div>
+        </div>
+        <div class="header-icon"></div>
+    </div>
+
+    <div class="toolbar">
+        <div class="toolbar-left">
+            <div class="toolbar-icon"></div>
+            <div class="toolbar-input"></div>
+        </div>
+        <div class="toolbar-center">
+            <div class="toolbar-record"></div>
+        </div>
+        <div class="toolbar-right">
+            <div class="toolbar-input-right"></div>
+            <div class="toolbar-icon-small"></div>
+        </div>
+    </div>
+
+    <div class="search-bar">
+        <div class="search-input"></div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab"></div>
+        <div class="tab"></div>
+        <div class="tab"></div>
+        <div class="tab"></div>
+    </div>
+
+    <div class="main-container">
+        <div class="spreadsheet">
+            <div class="spreadsheet-content">
+                <div class="spreadsheet-header">
+                    <div class="header-left"></div>
+                    <div class="header-right">
+                        <div class="header-pill"></div>
+                        <div class="header-pill"></div>
+                        <div class="header-pill"></div>
+                        <div class="header-pill"></div>
+                    </div>
+                </div>
+                <div class="spreadsheet-row">
+                    <div class="row-left"></div>
+                    <div class="row-right"></div>
+                </div>
+                <div class="spreadsheet-row">
+                    <div class="row-left"></div>
+                    <div class="row-right"></div>
+                </div>
+                <div class="spreadsheet-row">
+                    <div class="row-left"></div>
+                    <div class="row-right"></div>
+                </div>
+                <div class="spreadsheet-row">
+                    <div class="row-left"></div>
+                    <div class="row-right"></div>
+                </div>
+                <div class="spreadsheet-row">
+                    <div class="row-left"></div>
+                    <div class="row-right"></div>
+                </div>
+                <div class="spreadsheet-row">
+                    <div class="row-left"></div>
+                    <div class="row-right"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <div class="sidebar-icon"></div>
+                    <div class="sidebar-icon-small"></div>
+                </div>
+                <div class="sidebar-content"></div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <div class="sidebar-icon"></div>
+                    <div class="sidebar-icon-small"></div>
+                </div>
+                <div class="sidebar-content"></div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <div class="sidebar-icon"></div>
+                    <div class="sidebar-icon-small"></div>
+                </div>
+                <div class="sidebar-content"></div>
+            </div>
+
+            <div class="sidebar-card">
+                <div class="sidebar-header">
+                    <div class="sidebar-icon"></div>
+                    <div class="sidebar-icon-small"></div>
+                </div>
+                <div class="sidebar-content"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Board Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: white;
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #e5e7eb;
+            margin-bottom: 24px;
+        }
+
+        .header-title {
+            width: 160px;
+            height: 22px;
+            background-color: #d1d5db;
+            border-radius: 4px;
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .header-icon {
+            width: 36px;
+            height: 36px;
+            background-color: #d1d5db;
+            border-radius: 50%;
+        }
+
+        .board-container {
+            display: flex;
+            gap: 16px;
+            padding: 0 24px;
+            overflow-x: auto;
+        }
+
+        .column {
+            background-color: #e8e8e8;
+            border-radius: 8px;
+            width: 280px;
+            flex-shrink: 0;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .column-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .column-title {
+            width: 85px;
+            height: 18px;
+            background-color: #9ca3af;
+            border-radius: 4px;
+        }
+
+        .column-menu {
+            width: 24px;
+            height: 24px;
+            background-color: #9ca3af;
+            border-radius: 4px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            width: 100%;
+            height: 14px;
+            background-color: #e5e7eb;
+            border-radius: 3px;
+            margin-bottom: 12px;
+        }
+
+        .card-description {
+            width: 70%;
+            height: 12px;
+            background-color: #e5e7eb;
+            border-radius: 3px;
+            margin-bottom: 14px;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-tag {
+            width: 45px;
+            height: 20px;
+            background-color: #e5e7eb;
+            border-radius: 10px;
+        }
+
+        .card-avatar {
+            width: 28px;
+            height: 28px;
+            background-color: #d1d5db;
+            border-radius: 50%;
+        }
+
+        .column-footer {
+            width: 100%;
+            height: 36px;
+            background-color: #d1d5db;
+            border-radius: 6px;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-title"></div>
+        <div class="header-icons">
+            <div class="header-icon"></div>
+            <div class="header-icon"></div>
+            <div class="header-icon"></div>
+            <div class="header-icon"></div>
+        </div>
+    </div>
+
+    <div class="board-container">
+        <!-- Column 1 -->
+        <div class="column">
+            <div class="column-header">
+                <div class="column-title"></div>
+                <div class="column-menu"></div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="column-footer"></div>
+        </div>
+
+        <!-- Column 2 -->
+        <div class="column">
+            <div class="column-header">
+                <div class="column-title"></div>
+                <div class="column-menu"></div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="column-footer"></div>
+        </div>
+
+        <!-- Column 3 -->
+        <div class="column">
+            <div class="column-header">
+                <div class="column-title"></div>
+                <div class="column-menu"></div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="column-footer"></div>
+        </div>
+
+        <!-- Column 4 -->
+        <div class="column">
+            <div class="column-header">
+                <div class="column-title"></div>
+                <div class="column-menu"></div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="column-footer"></div>
+        </div>
+
+        <!-- Column 5 -->
+        <div class="column">
+            <div class="column-header">
+                <div class="column-title"></div>
+                <div class="column-menu"></div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title"></div>
+                <div class="card-description"></div>
+                <div class="card-footer">
+                    <div class="card-tag"></div>
+                    <div class="card-avatar"></div>
+                </div>
+            </div>
+
+            <div class="column-footer"></div>
+        </div>
+    </div>
+</body>
+</html>
